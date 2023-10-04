@@ -9,13 +9,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	text = str(player.bullet_count)
+	text = str(global.bullet_count)
 	
-	if player.bullet_count > 6:
+	if global.bullet_count > 6:
 		add_theme_color_override("font_color", Color("ffffff"))
-	elif player.bullet_count > 0 && player.bullet_count < 6:
+	elif global.bullet_count > 0 && global.bullet_count < 6:
 		add_theme_color_override("font_color", Color("ffff00"))
-	elif player.bullet_count == 0:
+	elif global.bullet_count == 0:
 		add_theme_color_override("font_color", Color("ff0000"))
 		
 			
