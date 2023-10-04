@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlthynudgt4qb"]
+
+[ext_resource type="Texture2D" uid="uid://d3e8hcsqvloay" path="res://circle_player.png" id="1_8dyls"]
+[ext_resource type="Script" path="res://Player.gd" id="1_wht7m"]
+[ext_resource type="Texture2D" uid="uid://bspp2v8g1ye57" path="res://Square.png" id="2_2dyco"]
+[ext_resource type="PackedScene" uid="uid://cfqmyosr4xj48" path="res://HUD.tscn" id="3_5yxxh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fvh0p"]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ju4sy"]
+radius = 27.074
+
+[node name="main" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(429, 217)
+script = ExtResource("1_wht7m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_fvh0p")
+
+[node name="Look Bar" type="Sprite2D" parent="Player"]
+position = Vector2(96, 0)
+scale = Vector2(0.65, 0.01)
+texture = ExtResource("2_2dyco")
+
+[node name="Player" type="Sprite2D" parent="Player"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_8dyls")
+
+[node name="Area2D" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+shape = SubResource("CircleShape2D_ju4sy")
+
+[node name="HUD" parent="." instance=ExtResource("3_5yxxh")]
